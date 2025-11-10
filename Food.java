@@ -1,22 +1,19 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.finalsmain;
 
-/**
- *
- * @author Owner
- */
-public class Food { // FIXED: Added the class name "Food" here
+public class Food {
 
     protected String foodName;
     protected double price;
 
-    // constructor
     public Food(String foodName, double price) {
         this.foodName = foodName;
         this.price = price;
+    }
+
+    // Copy constructor
+    public Food(Food other) {
+        this.foodName = other.foodName;
+        this.price = other.price;
     }
 
     public String getName() {
@@ -32,7 +29,6 @@ public class Food { // FIXED: Added the class name "Food" here
     }
 }
 
-// subclass for main dish
 class MainDish extends Food {
 
     boolean addRice;
@@ -42,13 +38,18 @@ class MainDish extends Food {
         this.addRice = addRice;
     }
 
+    // Copy constructor
+    public MainDish(MainDish other) {
+        super(other);
+        this.addRice = other.addRice;
+    }
+
     @Override
     public void displayInfo() {
         System.out.println(getName() + " | price: " + getPrice() + (addRice ? " (with rice)" : ""));
     }
 }
 
-// subclass for drinks
 class Drinks extends Food {
 
     protected String size;
@@ -56,6 +57,12 @@ class Drinks extends Food {
     public Drinks(String foodName, double price, String size) {
         super(foodName, price);
         this.size = size;
+    }
+
+    // Copy constructor
+    public Drinks(Drinks other) {
+        super(other);
+        this.size = other.size;
     }
 
     @Override
