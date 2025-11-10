@@ -3,11 +3,10 @@ package com.mycompany.finalsmain;
 import java.util.Scanner;
 import java.util.ArrayList;
 
-public class FinalsMain {
+public class FinalMain {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
         FoodMenu menu = new FoodMenu();
         ArrayList<Food> order = new ArrayList<>();
         ArrayList<Food> orderHistory = new ArrayList<>();
@@ -20,20 +19,24 @@ public class FinalsMain {
             System.out.println("4. View Order History");
             System.out.println("5. Exit");
             System.out.print("Enter your choice: ");
-
             int userChoice = getIntInput(sc);
 
             switch (userChoice) {
-                case 1 -> handleMenuSelection(sc, menu, order);
-                case 2 -> viewCurrentOrder(order);
-                case 3 -> processPayment(order, orderHistory);
-                case 4 -> viewOrderHistory(orderHistory);
+                case 1 ->
+                    handleMenuSelection(sc, menu, order);
+                case 2 ->
+                    viewCurrentOrder(order);
+                case 3 ->
+                    processPayment(order, orderHistory);
+                case 4 ->
+                    viewOrderHistory(orderHistory);
                 case 5 -> {
                     System.out.println("\nExiting program. Goodbye!");
                     sc.close();
                     return;
                 }
-                default -> System.out.println("\nInvalid option. Please select from 1 to 5.\n");
+                default ->
+                    System.out.println("\nInvalid option. Please select from 1 to 5.\n");
             }
         }
     }
@@ -60,7 +63,8 @@ public class FinalsMain {
             }
 
             if (menuChoice >= 1 && menuChoice <= menu.getMenuSize()) {
-                Food selected = menu.getFood(menuChoice - 1);
+                Food original = menu.getFood(menuChoice - 1);
+                Food selected = new Food(original); // This is kept as-is per your "no revision" rule.
                 order.add(selected);
                 System.out.println(selected.getName() + " added to your order!\n");
             } else {
@@ -92,7 +96,6 @@ public class FinalsMain {
             System.out.println("\nYour total is ₱" + total);
             System.out.println("Processing payment...");
             System.out.println("Payment successful! Thank you.\n");
-
             orderHistory.addAll(order);
             order.clear();
         }
