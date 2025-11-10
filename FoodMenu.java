@@ -12,7 +12,14 @@ public class FoodMenu {
 
         // add items
         menu.add(new MainDish("Chicken Katsu", 150, true));
+        menu.add(new MainDish("Pork Katsu", 150, true));
+        menu.add(new MainDish("Chicken Katsu Curry", 179, true));
+        menu.add(new MainDish("Chicken Teriyaki Bowl", 130, true));
+        
+        //Drinks
         menu.add(new Drinks("Red Iced Tea", 70, "Large"));
+        menu.add(new Drinks("Bottled Water", 30, "16oz"));
+        menu.add(new Drinks("Soda in Can", 45, "12oz"));
     }
 
     // display menu
