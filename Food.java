@@ -2,8 +2,8 @@ package com.mycompany.finalsmain;
 
 public class Food {
 
-    protected String foodName;
-    protected double price;
+    private String foodName;
+    private double price;
 
     public Food(String foodName, double price) {
         this.foodName = foodName;
@@ -16,57 +16,25 @@ public class Food {
         this.price = other.price;
     }
 
+    // Getters and Setters (Encapsulation)
     public String getName() {
         return foodName;
+    }
+
+    public void setName(String foodName) {
+        this.foodName = foodName;
     }
 
     public double getPrice() {
         return price;
     }
 
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    // Polymorphic method
     public void displayInfo() {
         System.out.println(getName() + " | price: " + getPrice());
-    }
-}
-
-class MainDish extends Food {
-
-    boolean addRice;
-
-    public MainDish(String foodName, double price, boolean addRice) {
-        super(foodName, price);
-        this.addRice = addRice;
-    }
-
-    // Copy constructor
-    public MainDish(MainDish other) {
-        super(other);
-        this.addRice = other.addRice;
-    }
-
-    @Override
-    public void displayInfo() {
-        System.out.println(getName() + " | price: " + getPrice() + (addRice ? " (with rice)" : ""));
-    }
-}
-
-class Drinks extends Food {
-
-    protected String size;
-
-    public Drinks(String foodName, double price, String size) {
-        super(foodName, price);
-        this.size = size;
-    }
-
-    // Copy constructor
-    public Drinks(Drinks other) {
-        super(other);
-        this.size = other.size;
-    }
-
-    @Override
-    public void displayInfo() {
-        System.out.println(getName() + " (" + size + ") | price: " + getPrice());
     }
 }
