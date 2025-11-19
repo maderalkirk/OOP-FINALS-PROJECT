@@ -10,13 +10,11 @@ public class Food {
         this.price = price;
     }
 
-    // Copy constructor
     public Food(Food other) {
         this.foodName = other.foodName;
         this.price = other.price;
     }
 
-    // Getters and Setters (Encapsulation)
     public String getName() {
         return foodName;
     }
@@ -33,7 +31,6 @@ public class Food {
         this.price = price;
     }
 
-    // Polymorphic method
     public void displayInfo() {
         System.out.println(getName() + " | price: " + getPrice());
     }
