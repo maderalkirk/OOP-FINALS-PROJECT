@@ -17,7 +17,6 @@ public class MainDish extends Food {
         this.addRice = addRice;
     }
 
-    // Copy constructor
     public MainDish(MainDish other) {
         super(other);
         this.addRice = other.addRice;
