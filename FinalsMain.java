@@ -144,21 +144,20 @@ public class FinalMain {
     private static void viewCurrentOrder(ArrayList<Food> order) {
         if (order.isEmpty()) {
             System.out.println("\nYour order is empty.\n");
-            return; // ⬅️ Good to add a return here
+            return; 
         }
 
         System.out.println("\n=== Your Current Order ===");
-        double total = 0; // ⬅️ 1. Initialize total
+        double total = 0;
 
         for (Food item : order) {
-            // Using printf for better alignment
             System.out.printf("- %s (PHP%.2f)\n", item.getName(), item.getPrice());
-            total += item.getPrice(); // ⬅️ 2. Add item price to total
+            total += item.getPrice();
         }
 
         System.out.println("-------------------------");
-        System.out.printf("TOTAL: PHP%.2f\n", total); // ⬅️ 3. Print the formatted total
-        System.out.println(); // Add a blank line for spacing
+        System.out.printf("TOTAL: PHP%.2f\n", total);
+        System.out.println();
     }
 
     private static void processPayment(Scanner sc, ArrayList<Food> order, ArrayList<Food> orderHistory) {
@@ -170,7 +169,6 @@ public class FinalMain {
         double total = 0;
         System.out.println("\n=== CHECKOUT ===");
         for (Food item : order) {
-            // Using printf for better currency formatting
             System.out.printf("- %s (PHP%.2f)\n", item.getName(), item.getPrice());
             total += item.getPrice();
         }
